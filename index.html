@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Selector</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Select a File and Append Text</h1>
+        <form action="/append" method="POST">
+            <label for="file">Select a file:</label>
+            <select name="file" id="file">
+                {{range .Files}}
+                <option value="{{.}}">{{.}}</option>
+                {{end}}
+            </select>
+
+            <label for="text">Text to append:</label>
+            <input type="text" id="text" name="text" required>
+
+            <button type="submit">Append Text</button>
+        </form>
+    </div>
+</body>
+</html>
